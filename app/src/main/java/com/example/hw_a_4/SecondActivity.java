@@ -25,7 +25,7 @@ public class SecondActivity extends AppCompatActivity {
         editText = findViewById(R.id.editText);
 
         String text = getIntent().getStringExtra(MainActivity.LIST_KEY);
-        editText.setText(text);
+        editText.setHint(text);
 
 
         button.setOnClickListener(new View.OnClickListener() {
