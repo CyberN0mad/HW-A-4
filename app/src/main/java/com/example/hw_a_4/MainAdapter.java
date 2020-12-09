@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         this.context = context;
         this.onClick = onClick;
     }
+
+
 
     @NonNull
     @Override
@@ -48,10 +51,21 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     class MainViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
 
+        public ImageView imageView;
+
+
+
         public MainViewHolder(@NonNull View itemView) {
             super(itemView);
             Log.d("Adapter", "onCreateView ");
             textView = itemView.findViewById(R.id.txtView);
+            imageView = itemView.findViewById(R.id.imgView);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {onClick.onDelete(getAdapterPosition());
+
+                }
+            });
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
